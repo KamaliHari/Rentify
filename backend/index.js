@@ -66,7 +66,19 @@ app.post('/login', (req, res) => {
       }
     });
   });
-  
+
+  app.post('/submit-property', (req, res) => {
+    const propertyDetails = req.body;
+    db.query('INSERT INTO posted_property SET ?', propertyDetails, (error, result) => {
+      if (error) {
+        console.error('Error inserting property:', error);
+        res.status(500).json({ error: 'Error inserting property' });
+        return;
+      }
+      console.log('Property inserted successfully:', result);
+      res.status(200).json({ message: 'Property inserted successfully' });
+    });
+  });
 
 
 app.listen(port, () => {

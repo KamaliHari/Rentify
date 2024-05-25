@@ -8,6 +8,7 @@ import Signup from './Signup';
 import Login from './Login';
 import Buyer from './buyer/Buyer';
 import Seller from './Seller';
+import PostProp from './buyer/PostProp';
 
 const App = () => {
   return (
@@ -35,6 +36,12 @@ const App = () => {
           path="/seller"
           element={
             <Seller></Seller>
+          }
+        />
+         <Route
+          path="/post-property"
+          element={
+            <PostProp></PostProp>
           }
         />
        
